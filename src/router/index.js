@@ -4,6 +4,8 @@ import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
 import Welcome from '../components/Welcome.vue'
 import Users from '../components/user/Users.vue'
+import Rights from '../components/power/Rights.vue'
+import Roles from '../components/power/Roles.vue'
 Vue.use(VueRouter)
 //导入全局样式
 import '../assets/css/global.css'
@@ -13,7 +15,9 @@ const routes = [
   { path: '/Login', component: Login },
   { path: '/Home', component: Home , redirect:'/Welcome' , children:[
     { path: '/Welcome', component: Welcome },
-    { path: '/Users', component: Users }
+    { path: '/Users', component: Users },
+    { path: '/Rights', component: Rights },
+    { path: '/Roles', component: Roles },
   ]}
 ]
 const router = new VueRouter({
