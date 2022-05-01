@@ -20,7 +20,7 @@
     </el-col>
   </el-row>
   <!-- 用户列表 -->
-    <el-table :data="userList" stripe border>
+    <el-table style="width: 100%;font-size:20px" :data="userList" stripe border>
     <el-table-column type="index"></el-table-column>
     <el-table-column prop="username" label="姓名"></el-table-column>
     <el-table-column prop="email" label="邮箱"></el-table-column>
@@ -269,7 +269,7 @@ export default {
     },
     //修改用户信息并提交
     editUserInfo(){
- this.$refs.editFormRef.validate(async valid=>{
+      this.$refs.editFormRef.validate(async valid=>{
         if (!valid) return
         const {data:res} = await this.$http.put('users/'+this.editForm.id,{email:this.editForm.email,mobile:this.editForm.mobile})
         if(res.meta.status!==200) return this.$message.error(res.meta.msg)

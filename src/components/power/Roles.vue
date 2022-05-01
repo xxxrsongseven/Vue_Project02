@@ -18,7 +18,8 @@
        <el-table
        border
     :data="roleList"
-    stripe>
+    stripe
+    style="width: 100%;font-size:20px">
     <!-- 展开列 -->
     <el-table-column type="expand">
       <template slot-scope="scope">
@@ -217,7 +218,7 @@ export default {
      //根据id删除对应的权限
     async removeRightById(role,rightId){
        //弹框提示用户是否删除
-        const confirmResult = await this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+        const confirmResult = await this.$confirm('此操作将删除该权限, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'

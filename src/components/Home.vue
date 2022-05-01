@@ -1,7 +1,7 @@
 <template>
   <el-container class="home-container">
     <!-- 头部 -->
-  <el-header> <span>Melissa后台管理系统</span> <el-button @click="logout" type="info">退出</el-button></el-header>
+  <el-header> <span>七影后台管理系统</span> <el-button @click="logout" type="info">退出</el-button></el-header>
   <!-- 页面主题 -->
   <el-container>
     <!-- 侧边栏 -->

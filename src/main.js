@@ -5,6 +5,7 @@ import ElementUI from 'element-ui'
 import { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
+import TreeTable from 'vue-table-with-tree-grid'
 //配置请求根路径
 axios.defaults.baseURL = "http://127.0.0.1:8888/api/private/v1/"
 // axios请求拦截器
@@ -17,6 +18,7 @@ Vue.prototype.$http = axios
 Vue.use(ElementUI)
 Vue.prototype.$message = Message
 Vue.config.productionTip = false
+Vue.component('tree-table',TreeTable)
 new Vue({
   router,
   render: h => h(App)

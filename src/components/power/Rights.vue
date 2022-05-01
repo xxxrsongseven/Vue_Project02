@@ -13,7 +13,7 @@
       border
     :data="rightsList"
     stripe
-    style="width: 100%">
+    style="width: 100%;font-size:20px">
     <el-table-column type="index"></el-table-column>
     <el-table-column prop="authName" label="商品管理"></el-table-column>
     <el-table-column prop="path" label="路径"></el-table-column>
