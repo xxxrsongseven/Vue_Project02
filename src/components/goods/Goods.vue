@@ -31,7 +31,7 @@
             </el-table-column>
             <el-table-column label="操作" width="210px">
                 <template slot-scope="scope">
-                    <el-button type="primary" icon="el-icon-edit">编辑</el-button>
+                    <el-button @click="showEditDialog(scope.row.goods_id)" type="primary" icon="el-icon-edit">编辑</el-button>
                     <el-button @click="removeById(scope.row.goods_id)" type="danger" icon="el-icon-delete">删除</el-button>
                 </template>
             </el-table-column>
@@ -48,6 +48,30 @@
          :total="total">
         </el-pagination>
     </el-card>
+    <!-- 编辑对话框 -->
+    <el-dialog
+  title="编辑"
+  :visible.sync="editDialogVisible"
+  width="50%">
+    <el-form :model="editForm" :rules="editFormRules" ref="addFormRef" label-width="100px">
+  <el-form-item label="商品名称" prop="goods">
+    <el-input v-model="editForm.goods_name"></el-input>
+  </el-form-item>
+  <el-form-item label="商品价格" prop="goods">
+    <el-input v-model="editForm.goods_price"></el-input>
+  </el-form-item>
+  <el-form-item label="商品数量" prop="goods">
+    <el-input v-model="editForm.goods_number"></el-input>
+  </el-form-item>
+  <el-form-item label="商品重量" prop="goods">
+    <el-input v-model="editForm.goods_weight"></el-input>
+  </el-form-item>
+    </el-form>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="editDialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="editGoods">确 定</el-button>
+  </span>
+</el-dialog>
   </div>
 </template>
 
@@ -64,7 +88,17 @@ export default {
             //商品列表
             goodsList:[],
             //总数据条数
-            total:0
+            total:0,
+            //编辑对话框的显示与隐藏
+            editDialogVisible:false,
+            //编辑表单数据对象
+            editForm:{},
+            //编辑表单校验规则对象
+            editFormRules:{
+                goods:[
+                    {requried:true,message:'请输入以上信息',trigger:'blur'}
+                ]
+            }
         }
     },
     created(){
@@ -105,6 +139,24 @@ export default {
         //跳转至添加商品页面
         goAddPage(){
             this.$router.push('/goods/add')
+        },
+        //显示编辑对话框
+        async showEditDialog(id){
+            const {data:res} = await this.$http.get('goods/'+id)
+            this.editForm = res.data
+            this.editDialogVisible=true
+        },
+        async editGoods(){
+            const {data:res} = await this.$http.put(`goods/${this.editForm.goods_id}`,this.editForm)
+            if(res.meta.status ===200){
+                this.getGoodsList()
+                this.editDialogVisible=false
+                this.$message.success('修改商品成功')
+
+            } else{
+                this.$message.error('修改失败')
+            }
+
         }
     }
 }
