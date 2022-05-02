@@ -28,7 +28,7 @@
         <el-tab-pane label="动态参数" name="many">
             <el-button @click="addDialogVisible=true" type="primary" :disabled="isBtnDisabled">添加参数</el-button>
             <!-- 动态参表格 -->
-            <el-table :data="manyTableData" border stripe>
+            <el-table  style="font-size:20px" :data="manyTableData" border stripe>
                 <!-- 展开行 -->
                 <el-table-column type="expand">
                     <template slot-scope="scope">
@@ -64,7 +64,7 @@
         <el-tab-pane label="静态属性" name="only">
             <el-button @click="addDialogVisible=true" type="primary" :disabled="isBtnDisabled">添加属性</el-button>
             <!-- 静态属性表格 -->
-            <el-table :data="onlyTableData" border stripe>    
+            <el-table style="font-size:20px" :data="onlyTableData" border stripe>    
                 <el-table-column type="expand">
                     <template slot-scope="scope">
                         <!-- 循环渲染tag标签 -->

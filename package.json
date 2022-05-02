@@ -11,6 +11,7 @@
     "core-js": "^3.8.3",
     "element-ui": "^2.15.8",
     "vue": "^2.6.14",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.5.1",
     "vue-table-tree-grid": "^0.2.4",
     "vue-table-with-tree-grid": "^0.2.4"

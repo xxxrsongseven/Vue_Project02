@@ -8,6 +8,8 @@ import Rights from '../components/power/Rights.vue'
 import Roles from '../components/power/Roles.vue'
 import Categories from '../components/goods/Categories.vue'
 import Params from '../components/goods/Params.vue'
+import Goods from '../components/goods/Goods.vue'
+import Add from '../components/goods/Add.vue'
 Vue.use(VueRouter)
 //导入全局样式
 import '../assets/css/global.css'
@@ -22,6 +24,8 @@ const routes = [
     { path: '/Roles', component: Roles },
     { path: '/Categories', component: Categories },
     { path: '/Params', component: Params },
+    { path: '/Goods', component: Goods },
+    { path: '/Goods/Add', component: Add },
   ]}
 ]
 const router = new VueRouter({
