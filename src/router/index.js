@@ -10,6 +10,7 @@ import Categories from '../components/goods/Categories.vue'
 import Params from '../components/goods/Params.vue'
 import Goods from '../components/goods/Goods.vue'
 import Add from '../components/goods/Add.vue'
+import Orders from '../components/order/Orders.vue'
 Vue.use(VueRouter)
 //导入全局样式
 import '../assets/css/global.css'
@@ -26,6 +27,7 @@ const routes = [
     { path: '/Params', component: Params },
     { path: '/Goods', component: Goods },
     { path: '/Goods/Add', component: Add },
+    { path: '/Orders', component: Orders },
   ]}
 ]
 const router = new VueRouter({
